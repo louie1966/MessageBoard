@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace MessageBoard.ConsoleUI
@@ -9,8 +10,9 @@ namespace MessageBoard.ConsoleUI
             new Chatter{Name="René", Age=51},
             new Chatter{Name="Silvia", Age=48}
         };
-       
-        public int getChatterCount() {
+
+        public int getChatterCount()
+        {
             return _chatters.Count();
         }
 
@@ -20,7 +22,13 @@ namespace MessageBoard.ConsoleUI
 
         public Chatter getChatter(string name) => _chatters.Where(n => n.Name == name).FirstOrDefault();
 
-
+        public void newMessage(Message message)
+        {
+            foreach (var chatter in _chatters)
+            {
+                Console.WriteLine(message.MessageBody + ": " + chatter.Name);
+            }
+        }
 
         public List<Chatter> currentChatters() => _chatters;
     }

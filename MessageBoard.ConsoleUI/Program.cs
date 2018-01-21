@@ -17,7 +17,11 @@ namespace MessageBoard.ConsoleUI
 
             var sil = room.getChatter("Silvia");
 
-            Console.WriteLine("Dit is chatter gekozen met de naam {0} en ze is {1}", sil.Name,sil.Age);
+            var message = new Message("Hoi dit is Silvia.", sil, DateTime.Now);
+
+            room.newMessage(message);
+
+            Console.WriteLine("Dit is chatter gekozen met de naam {0} en ze is {1}", sil.Name, sil.Age);
 
             List<Chatter> chatters = room.currentChatters();
 
@@ -26,7 +30,7 @@ namespace MessageBoard.ConsoleUI
                 Console.WriteLine("Dit is {0} en is {1}", chatter.Name, chatter.Age);
             }
 
-       
+
 
 
 

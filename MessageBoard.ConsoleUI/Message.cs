@@ -1,22 +1,18 @@
-﻿namespace MessageBoard.ConsoleUI
+﻿using System;
+
+namespace MessageBoard.ConsoleUI
 {
-    class Message
+    public class Message
     {
-        string _messageBody = "";
-
-        public Message(string messageBody)
+        public Message(string messageBody, Chatter chatter, DateTime send)
         {
-            _messageBody = messageBody;
+            MessageBody = messageBody;
+            Sender = chatter;
+            Send = send;
         }
 
-        public void setBody(string messageBody)
-        {
-            _messageBody = messageBody;
-        }
-
-        public string getBody()
-        {
-            return _messageBody;
-        }
+        public string MessageBody { get; set; }
+        public Chatter Sender { get; set; }
+        public DateTime Send { get; set; }
     }
 }
